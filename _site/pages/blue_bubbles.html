@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <title>blue bubbles | Gaston Sanchez</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="keywords" content="data analysis, statistics, visualization, R, programming" />
+        <meta name="author" content="Gaston Sanchez" />
+        <meta name="description" content="Website of Gaston Sanchez, statistical programmer and data scientist" />
+        <meta name="viewport" content="width=640px, initial-scale=1.0, maximum-scale=1.0">	
+        <!-- favicon -->
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <!-- Google Fonts -->
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,300,400,600" rel="stylesheet" type="text/css">
+		<link href='http://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css" type="text/css" media="screen, projection" />
+	</head>
+	<body>
+
+
+		<script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<div class="header-page">
+
+<h1><a href="/">Gaston Sanchez</a></h1>
+<div id="nav">
+	<ul>
+		<li><a href="/work" class="">Work</a></li>
+		<li><a href="/teaching" class="">Teaching</a></li>
+		<li><a href="/software" class="">Software</a></li>
+		<li><a href="/blog" class="">Blog</a></li>		
+		<li><a href="/about" class="">About</a></li>
+	</ul>
+</div>
+
+</div>
+
+
+<div class="clear"></div>
+
+<div id="block">
+	<div class="prose"> 
+	<h1 id="r-tistartista"><a href="/artista">R-tist</a></h1>
+
+<h3 id="blue-bubbles">blue bubbles</h3>
+
+<p><img src="../images/artista/blue_bubbles.png" alt="blue bubbles" /></p>
+
+<hr />
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># ============================================================= </span>
+<span class="c1"># Blue bubbles </span>
+<span class="c1"># ============================================================= </span>
+<span class="c1"># generate x-y values </span>
+x <span class="o">&lt;-</span> rnorm<span class="p">(</span><span class="m">300</span><span class="p">)</span> 
+y <span class="o">&lt;-</span> rnorm<span class="p">(</span><span class="m">300</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span> 
+ 
+<span class="c1"># colors </span>
+blues <span class="o">&lt;-</span> hsv<span class="p">(</span>h <span class="o">=</span> <span class="m">0.65</span><span class="p">,</span> s <span class="o">=</span> <span class="m">1</span><span class="p">,</span> v <span class="o">=</span> <span class="m">1</span><span class="p">,</span> alpha <span class="o">=</span> runif<span class="p">(</span><span class="m">100</span><span class="p">,</span> <span class="m">0.3</span><span class="p">,</span> <span class="m">1</span><span class="p">))</span> 
+whites <span class="o">&lt;-</span> hsv<span class="p">(</span>h <span class="o">=</span> <span class="m">0</span><span class="p">,</span> s <span class="o">=</span> <span class="m">0</span><span class="p">,</span> v <span class="o">=</span> <span class="m">1</span><span class="p">,</span> alpha <span class="o">=</span> runif<span class="p">(</span><span class="m">100</span><span class="p">,</span> <span class="m">0.3</span><span class="p">,</span> <span class="m">0.7</span><span class="p">))</span> 
+sizes <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">2.5</span> <span class="o">*</span> runif<span class="p">(</span><span class="m">99</span><span class="p">),</span> <span class="m">5</span><span class="p">)</span> 
+ 
+ 
+png<span class="p">(</span><span class="s">&quot;blue_bubbles.png&quot;</span><span class="p">,</span> width <span class="o">=</span> <span class="m">700</span><span class="p">,</span> height <span class="o">=</span> <span class="m">400</span><span class="p">)</span> 
+<span class="c1"># set graphical parameters </span>
+op <span class="o">&lt;-</span> par<span class="p">(</span>bg <span class="o">=</span> <span class="s">&#39;black&#39;</span><span class="p">,</span> mar <span class="o">=</span> <span class="kp">rep</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">4</span><span class="p">))</span> 
+<span class="c1"># plot </span>
+plot<span class="p">(</span>x<span class="p">,</span> y<span class="p">,</span> type <span class="o">=</span> <span class="s">&#39;n&#39;</span><span class="p">,</span> xlim <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">-2</span><span class="p">,</span> <span class="m">2</span><span class="p">),</span> ylim <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">-2</span><span class="p">,</span> <span class="m">2</span><span class="p">))</span> 
+points<span class="p">(</span>x<span class="p">,</span> y<span class="p">,</span> pch <span class="o">=</span> <span class="m">19</span><span class="p">,</span> cex <span class="o">=</span> <span class="m">2</span><span class="o">*</span>sizes<span class="p">,</span> col <span class="o">=</span> hsv<span class="p">(</span><span class="m">0.6</span><span class="p">,</span> alpha <span class="o">=</span> <span class="m">0.3</span><span class="p">),</span>  
+       bg <span class="o">=</span> hsv<span class="p">(</span><span class="m">0.6</span><span class="p">,</span> alpha <span class="o">=</span> <span class="m">0.3</span><span class="p">))</span> 
+points<span class="p">(</span>x<span class="p">,</span> y<span class="p">,</span> pch <span class="o">=</span> <span class="m">19</span><span class="p">,</span> cex <span class="o">=</span> sizes<span class="p">,</span> col <span class="o">=</span> whites<span class="p">,</span> bg <span class="o">=</span> whites<span class="p">)</span> 
+points<span class="p">(</span>x<span class="p">,</span> y<span class="p">,</span> pch <span class="o">=</span> <span class="m">19</span><span class="p">,</span> cex <span class="o">=</span> sizes<span class="p">,</span> col <span class="o">=</span> blues<span class="p">,</span> bg <span class="o">=</span> blues<span class="p">)</span> 
+<span class="c1"># signature </span>
+legend<span class="p">(</span><span class="s">&quot;topright&quot;</span><span class="p">,</span> legend <span class="o">=</span> <span class="s">&quot;© Gaston Sanchez&quot;</span><span class="p">,</span> bty <span class="o">=</span> <span class="s">&quot;n&quot;</span><span class="p">,</span>  
+       text.col <span class="o">=</span> <span class="s">&quot;gray70&quot;</span><span class="p">)</span> 
+<span class="c1"># reset par </span>
+par<span class="p">(</span>op<span class="p">)</span> 
+dev.off<span class="p">()</span></code></pre></div>
+
+
+	</div>
+</div>
+
+
+<div id="footer">
+
+<div id="footer">
+	&copy; <a href="/">Gaston Sanchez</a>. All contents under 
+	<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">(CC) BY-NC-SA license</a>, 
+	unless otherwise noted.
+	<br/><br/>
+	Did you find this site useful? If yes, consider helping me with my  
+	<a href="http://amzn.com/w/A8P707HJ94QI" target="_blank">wishlist</a>.
+</div>
+
+
+</div>
+
+
+
+
+		<!-- Google Analytics -->
+		<script>
+  		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  	  ga('create', 'UA-46765288-1', 'gastonsanchez.com');
+  		  ga('send', 'pageview');
+
+		</script>
+		<!-- Google Analytics end -->
+
+	</body>
+</html>
